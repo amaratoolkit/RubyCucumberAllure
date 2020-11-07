@@ -1,0 +1,25 @@
+
+trigger:
+  - main
+
+pool:
+  vmImage: 'macOS-latest'
+
+steps:
+- task: UseRubyVersion@0
+  inputs:
+    versionSpec: '>= 2.7'
+
+- scripts:
+    gem install bundler
+    bundle update --bundler
+
+  displayName: 'bundle install'
+
+- scripts: bundle exec cucumber -p docker --runner=junitxml --junitxml-output-file=result.xml
+  displayName: 'bundle exec cucumber'
+
+- task: PublishTestResult
+  inputs:
+    testResultFormat: 'JUnit'
+    testResultFiles: '**/*.xml'
