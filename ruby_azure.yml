@@ -21,4 +21,4 @@ steps:
   displayName: 'bundle install'
 
 - script: bundle exec cucumber -p docker
-  displayName: 'bundle exec cucumber -p docker'
+  displayName: 'bundle exec cucumber -p docker -p report'
