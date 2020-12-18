@@ -26,5 +26,5 @@ steps:
 - task: PublishTestResults@2
   condition: succeededOrFailed()
   inputs:
-    testResultsFiles: '**/test-*.xml'
+    testResultsFiles: '/report/allure-results'
     testRunTitle: 'Ruby tests'
