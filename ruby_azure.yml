@@ -21,4 +21,10 @@ steps:
   displayName: 'bundle install'
 
 - script: bundle exec cucumber -p docker
-  displayName: 'bundle exec cucumber -p docker'
+  displayName: 'bundle exec cucumber -p docker -p report'
+
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testResultsFiles: '**/report/allure-results'
+    testRunTitle: 'Ruby tests'
