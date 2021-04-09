@@ -21,7 +21,7 @@ steps:
   displayName: 'bundle install'
 
 - script: bundle exec cucumber -p docker
-  displayName: 'bundle exec cucumber -p docker -p report'
+  displayName: 'bundle exec cucumber -p docker'
 
 - task: PublishTestResults@2
   condition: succeededOrFailed()
