@@ -13,7 +13,7 @@ pool:
 steps:
 - task: UseRubyVersion@0
   inputs:
-    versionSpec: '>= 2.5'
+    versionSpec: '>= 2.7'
 
 - script: |
     gem install bundler
@@ -21,4 +21,4 @@ steps:
   displayName: 'bundle install'
 
 - script: bundle exec cucumber -p docker
-  displayName: 'bundle exec cucumber -p docker -p report'
+  displayName: 'bundle exec cucumber -p docker'
